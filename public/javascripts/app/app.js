@@ -1,5 +1,6 @@
-define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
+define(["backbone", "controllers/base"], function(Backbone, BaseRouter) {
   var initialize = function() {
+    BaseRouter.initialize();
   }
 
   return {
