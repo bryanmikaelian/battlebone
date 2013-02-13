@@ -3,6 +3,10 @@ define(['backbone', 'app/collections/realms'], function(Backbone, RealmsCollecti
     el: $(".container"),
     initialize: function() {
       this.collection = new RealmsCollection();
+    },
+    render: function() {
+      var template = _.template( $("#realms").html(), {});
+      this.$el.html(template)
     }
   });
 
