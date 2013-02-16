@@ -1,6 +1,6 @@
 define(['backbone', 'app/collections/realms'], function(Backbone, RealmsCollection) {
   var RealmListView = Backbone.View.extend({
-    el: $(".container"),
+    el: $(".contents"),
     initialize: function() {
       this.collection = new RealmsCollection();
     },
