@@ -27,5 +27,5 @@ end
 
 get '/api/realms/:id' do
   return if params[:id].to_i < 1
-  settings.client.realm(params[:id])
+  settings.client.realm(params[:id]).to_json
 end

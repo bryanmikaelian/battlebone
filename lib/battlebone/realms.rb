@@ -6,8 +6,8 @@ module BattleBone
 
     def realm_show(id)
       faux_id = id.to_i - 1
-      @realms = self.index.to_hash['realms']
-      @realms[faux_id].to_json
+      @realms = self.realm_index.to_hash['realms']
+      @realms[faux_id]
     end
   end
 end
