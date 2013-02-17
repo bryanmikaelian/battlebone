@@ -24,6 +24,10 @@ end
 # API - Achievements
 ##############
 
+get '/api/achievements/?' do
+  return 404
+end
+
 get '/api/achievements/:id' do
   settings.client.achievement(params[:id])
 end
@@ -31,7 +35,7 @@ end
 ##############
 # API - Realms
 ##############
-get '/api/realms' do
+get '/api/realms/?' do
   settings.client.realms
 end
 
