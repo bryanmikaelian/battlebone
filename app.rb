@@ -60,3 +60,13 @@ get '/api/realms/:id/character/?' do
   settings.client.realm_character(params)
 end
 
+##############
+# API - Items
+##############
+get '/api/items/?' do
+  settings.client.items
+end
+
+get '/api/items/:id' do
+  settings.client.item(params[:id])
+end

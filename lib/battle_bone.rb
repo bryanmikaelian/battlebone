@@ -2,12 +2,14 @@ require 'battlenet'
 require 'json'
 require './lib/battlebone/realms'
 require './lib/battlebone/achievements'
+require './lib/battlebone/items'
 
 module BattleBone
 
   class API
     include BattleBone::Achievements
     include BattleBone::Realms
+    include BattleBone::Items
 
     attr_reader :client
 
@@ -51,6 +53,14 @@ module BattleBone
       self.character_data(params[:id].to_i, params[:name], params[:fields]).to_json
     end
 
+    def items
+      return processed_no_content
+    end
+
+    def item(id)
+      self.item_data(id.to_i).to_json
+    end
+
     protected
 
     def bad_request
@@ -59,6 +69,10 @@ module BattleBone
 
     def not_found
       404
+    end
+
+    def processed_no_content
+      204
     end
 
   end
