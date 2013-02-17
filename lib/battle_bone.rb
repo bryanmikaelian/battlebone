@@ -54,7 +54,7 @@ module BattleBone
     end
 
     def items
-      return processed_no_content
+      return not_found
     end
 
     def item(id)
