@@ -55,3 +55,8 @@ end
 get '/api/realms/:id/auction/data/?' do
   settings.client.realm_auction_show_data(params[:id])
 end
+
+get '/api/realms/:id/character/?' do
+  settings.client.realm_character(params)
+end
+

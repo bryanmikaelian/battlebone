@@ -46,6 +46,11 @@ module BattleBone
       self.auction_data(id.to_i).to_json
     end
 
+    def realm_character(params)
+      return bad_request unless params[:id] && params[:name]
+      self.character_data(params[:id].to_i, params[:name], params[:fields]).to_json
+    end
+
     protected
 
     def bad_request

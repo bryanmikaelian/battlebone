@@ -20,5 +20,11 @@ module BattleBone
       @client.auction_data(realm["slug"])
     end
 
+    def character_data(id, name, options)
+      fields = {fields: options}
+      realm = self.realm_show(id)
+      @client.character(realm["name"], name, fields)
+    end
+
   end
 end
