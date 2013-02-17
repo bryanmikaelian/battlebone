@@ -1,7 +1,6 @@
 require 'rubygems'
 require 'sinatra'
 require 'haml'
-require 'json'
 require './lib/battle_bone'
 
 # Helpers
@@ -22,10 +21,10 @@ get '/' do
 end
 
 get '/api/realms' do
-  settings.client.realms.to_json
+  settings.client.realms
 end
 
 get '/api/realms/:id' do
   return if params[:id].to_i < 1
-  settings.client.realm(params[:id]).to_json
+  settings.client.realm(params[:id])
 end

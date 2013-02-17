@@ -1,5 +1,6 @@
 require 'battlenet'
 require './lib/battlebone/realms'
+require 'json'
 
 module BattleBone
 
@@ -17,11 +18,11 @@ module BattleBone
     end
 
     def realms
-      self.realm_index
+      self.realm_index.to_json
     end
 
     def realm(id)
-      self.realm_show(id)
+      self.realm_show(id).to_json
     end
 
   end
