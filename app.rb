@@ -20,6 +20,17 @@ get '/' do
   haml :index, :layout => :'layouts/application'
 end
 
+##############
+# API - Achievements
+##############
+
+get '/api/achievements/:id' do
+  settings.client.achievement(params[:id])
+end
+
+##############
+# API - Realms
+##############
 get '/api/realms' do
   settings.client.realms
 end

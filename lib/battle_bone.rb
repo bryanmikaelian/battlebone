@@ -1,10 +1,12 @@
 require 'battlenet'
-require './lib/battlebone/realms'
 require 'json'
+require './lib/battlebone/realms'
+require './lib/battlebone/achievements'
 
 module BattleBone
 
   class API
+    include BattleBone::Achievements
     include BattleBone::Realms
 
     attr_reader :client
@@ -15,6 +17,10 @@ module BattleBone
       else
         @client = Battlenet.new :us
       end
+    end
+
+    def achievement(id)
+      self.achievement_show(id).to_json
     end
 
     def realms
