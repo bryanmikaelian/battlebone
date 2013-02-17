@@ -40,6 +40,6 @@ get '/api/realms/?' do
 end
 
 get '/api/realms/:id' do
-  return if params[:id].to_i < 1
+  return 400 if params[:id].to_i < 1
   settings.client.realm(params[:id])
 end
