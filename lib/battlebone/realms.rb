@@ -9,5 +9,16 @@ module BattleBone
       @realms = self.realm_index.to_hash['realms']
       @realms[faux_id]
     end
+
+    def realm_auction_info(id)
+      realm = self.realm_show(id)
+      @client.auction(realm["slug"])
+    end
+
+    def realm_auction_data(id)
+      realm = self.realm_show(id)
+      @client.auction_data(realm["slug"])
+    end
+
   end
 end

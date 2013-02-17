@@ -31,5 +31,13 @@ module BattleBone
       self.realm_show(id).to_json
     end
 
+    def realm_auction(id)
+      self.realm_auction_info(id).to_json
+    end
+
+    def realm_auctions(id)
+      self.realm_auction_data(id).to_json
+    end
+
   end
 end

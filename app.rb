@@ -43,3 +43,18 @@ get '/api/realms/:id' do
   return 400 if params[:id].to_i < 1
   settings.client.realm(params[:id])
 end
+
+get '/api/realms/:id/auction/?' do
+  return 404
+end
+
+get '/api/realms/:id/auction/info/?' do
+  return 400 if params[:id].to_i < 1
+  settings.client.realm_auction(params[:id])
+end
+
+# TODO: This end point is slow.  Cache it.
+get '/api/realms/:id/auction/data/?' do
+  return 400 if params[:id].to_i < 1
+  settings.client.realm_auctions(params[:id])
+end
