@@ -10,12 +10,12 @@ module BattleBone
       @realms[faux_id]
     end
 
-    def realm_auction_info(id)
+    def auction_info(id)
       realm = self.realm_show(id)
       @client.auction(realm["slug"])
     end
 
-    def realm_auction_data(id)
+    def auction_data(id)
       realm = self.realm_show(id)
       @client.auction_data(realm["slug"])
     end

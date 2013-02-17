@@ -28,15 +28,32 @@ module BattleBone
     end
 
     def realm(id)
-      self.realm_show(id).to_json
+      return bad_request if id.to_i < 1
+      self.realm_show(id.to_i).to_json
     end
 
-    def realm_auction(id)
-      self.realm_auction_info(id).to_json
+    def realm_auction
+      not_found
     end
 
-    def realm_auctions(id)
-      self.realm_auction_data(id).to_json
+    def realm_auction_info(id)
+      return bad_request if id.to_i < 1
+      self.auction_info(id.to_i).to_json
+    end
+
+    def realm_auction_show_data(id)
+      return bad_request if id.to_i < 1
+      self.auction_data(id.to_i).to_json
+    end
+
+    protected
+
+    def bad_request
+      400
+    end
+
+    def not_found
+      404
     end
 
   end
