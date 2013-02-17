@@ -1,8 +1,10 @@
 require 'battlenet'
+require './lib/battlebone/realms'
 
 module BattleBone
 
   class API
+    include BattleBone::Realms
 
     attr_reader :client
 
@@ -15,7 +17,12 @@ module BattleBone
     end
 
     def realms
-      @client.realm
+      self.realm_index
     end
+
+    def realm(id)
+      self.realm_show(id)
+    end
+
   end
 end

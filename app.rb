@@ -27,8 +27,5 @@ end
 
 get '/api/realms/:id' do
   return if params[:id].to_i < 1
-  faux_id = params[:id].to_i - 1
-  @realms = settings.client.realms.to_hash['realms']
-
-  @realms[faux_id].to_json
+  settings.client.realm(params[:id])
 end
